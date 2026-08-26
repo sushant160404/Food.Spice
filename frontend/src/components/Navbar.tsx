@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Code, Calendar, Menu as MenuIcon, X, PhoneCall, Bike, ShieldAlert, ChefHat } from 'lucide-react';
+import { ShoppingBag, Calendar, Menu as MenuIcon, X, PhoneCall } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface NavbarProps {
@@ -8,10 +8,6 @@ interface NavbarProps {
   onOpenSupport: () => void;
   onOpenReservation: () => void;
   onOpenMenu: () => void;
-  onOpenGraphQL: () => void;
-  onOpenOrderTracking: () => void;
-  onOpenAdmin: () => void;
-  hasActiveOrder?: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -20,10 +16,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSupport,
   onOpenReservation,
   onOpenMenu,
-  onOpenGraphQL,
-  onOpenOrderTracking,
-  onOpenAdmin,
-  hasActiveOrder,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -88,42 +80,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right Actions */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 md:gap-3">
-          {/* Track Order Trigger */}
-          <button
-            id="nav-track-order-btn"
-            onClick={onOpenOrderTracking}
-            title="Track Order Status"
-            className="flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 text-xs font-semibold rounded-full bg-orange-50 hover:bg-orange-100 text-[#C93B13] transition-colors border border-orange-200 cursor-pointer relative"
-          >
-            <Bike className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#C93B13]" />
-            <span className="hidden sm:inline">Track Order</span>
-            {hasActiveOrder && (
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping absolute -top-0.5 -right-0.5" />
-            )}
-          </button>
-
-          {/* GraphQL Inspector Trigger */}
-          <button
-            id="graphql-inspector-btn"
-            onClick={onOpenGraphQL}
-            title="Inspect Live GraphQL API"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-700 transition-colors border border-neutral-300/80 cursor-pointer"
-          >
-            <Code className="w-3.5 h-3.5 text-[#C93B13]" />
-            <span>GraphQL API</span>
-          </button>
-
-          {/* Admin Panel Trigger */}
-          <button
-            id="nav-admin-panel-btn"
-            onClick={onOpenAdmin}
-            title="Open Foodtuck Admin & Kitchen Portal"
-            className="flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 text-xs font-bold rounded-full bg-neutral-900 hover:bg-black text-white transition-all shadow-xs cursor-pointer border border-neutral-800"
-          >
-            <ChefHat className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-amber-400" />
-            <span className="hidden sm:inline">Admin</span>
-          </button>
-
           {/* Book Table Button */}
           <button
             id="nav-book-table-btn"
@@ -214,17 +170,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <div className="pt-2 border-t border-neutral-200 flex flex-col gap-2">
               <button
-                id="mobile-nav-track-order"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenOrderTracking();
-                }}
-                className="w-full text-center py-2.5 rounded-full bg-orange-100 text-[#C93B13] font-bold text-sm flex items-center justify-center gap-2"
-              >
-                <Bike className="w-4 h-4" />
-                <span>Track Live Order Status</span>
-              </button>
-              <button
                 id="mobile-nav-menu"
                 onClick={() => {
                   setMobileMenuOpen(false);
@@ -243,28 +188,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="w-full text-center py-2.5 rounded-full border border-neutral-300 text-neutral-800 font-medium text-sm"
               >
                 Reserve a Table
-              </button>
-              <button
-                id="mobile-nav-graphql"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenGraphQL();
-                }}
-                className="w-full text-center py-2.5 rounded-full bg-neutral-100 text-neutral-700 font-medium text-sm flex items-center justify-center gap-2"
-              >
-                <Code className="w-4 h-4 text-[#C93B13]" />
-                <span>Inspect GraphQL API</span>
-              </button>
-              <button
-                id="mobile-nav-admin"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenAdmin();
-                }}
-                className="w-full text-center py-2.5 rounded-full bg-neutral-900 text-white font-bold text-sm flex items-center justify-center gap-2"
-              >
-                <ChefHat className="w-4 h-4 text-amber-400" />
-                <span>Foodtuck Admin & Kitchen Portal</span>
               </button>
             </div>
           </motion.div>

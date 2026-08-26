@@ -9,6 +9,7 @@ interface FooterProps {
   onOpenSupport: () => void;
   onOpenOrderTracking?: () => void;
   onOpenAdmin?: () => void;
+  onOpenGraphQL?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -17,6 +18,7 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenSupport,
   onOpenOrderTracking,
   onOpenAdmin,
+  onOpenGraphQL,
 }) => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -191,6 +193,15 @@ export const Footer: React.FC<FooterProps> = ({
                   className="text-neutral-900 font-bold hover:text-[#C93B13] transition-colors cursor-pointer"
                 >
                   Admin
+                </button>
+              )}
+              {onOpenGraphQL && (
+                <button
+                  id="footer-graphql-link"
+                  onClick={onOpenGraphQL}
+                  className="hover:text-[#C93B13] transition-colors cursor-pointer"
+                >
+                  GraphQL API
                 </button>
               )}
             </div>

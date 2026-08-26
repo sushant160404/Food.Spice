@@ -154,10 +154,6 @@ export default function App() {
           setMenuFilterCat('all');
           setIsMenuOpen(true);
         }}
-        onOpenGraphQL={() => setIsGraphQLOpen(true)}
-        onOpenOrderTracking={() => setIsOrderTrackingOpen(true)}
-        onOpenAdmin={() => setIsAdminOpen(true)}
-        hasActiveOrder={!!confirmedOrder}
       />
 
       {/* Main Content Sections */}
@@ -215,6 +211,7 @@ export default function App() {
         onOpenSupport={() => setIsSupportOpen(true)}
         onOpenOrderTracking={() => setIsOrderTrackingOpen(true)}
         onOpenAdmin={() => setIsAdminOpen(true)}
+        onOpenGraphQL={() => setIsGraphQLOpen(true)}
       />
 
       {/* Full Menu Modal */}
