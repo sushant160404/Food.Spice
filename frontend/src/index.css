@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-serif-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-signature {
+  font-family: 'Caveat', cursive;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4a373;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c93b13;
+}
+
+/* ==========================================================================
+   PRINT RECEIPT STYLESHEET (Physical Guest Ticket)
+   ========================================================================== */
+@media print {
+  /* Hide all interactive UI and screen containers when printing */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Make printable ticket visible and centered */
+  #printable-order-receipt,
+  #printable-order-receipt * {
+    visibility: visible;
+  }
+
+  #printable-order-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 0;
+    display: flex !important;
+    justify-content: center;
+    background: #ffffff !important;
+  }
+
+  .screen-only-modal {
+    display: none !important;
+  }
+
+  @page {
+    size: auto;
+    margin: 10mm 15mm;
+  }
+
+  .receipt-ticket {
+    width: 340px;
+    margin: 0 auto;
+    padding: 16px;
+    font-family: 'Courier New', Courier, monospace, monospace;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #000000;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+  }
+
+  .receipt-header {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .receipt-brand {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+  }
+
+  .receipt-subbrand {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333333;
+    margin-bottom: 4px;
+  }
+
+  .receipt-contact {
+    font-size: 9px;
+    color: #555555;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .receipt-badge-row {
+    margin: 8px 0;
+  }
+
+  .receipt-type-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-weight: 800;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .receipt-divider-dash {
+    border-top: 1px dashed #000000;
+    margin: 10px 0;
+  }
+
+  .receipt-divider-solid {
+    border-top: 1px solid #000000;
+    margin: 6px 0;
+  }
+
+  .receipt-meta {
+    font-size: 10.5px;
+    margin-bottom: 8px;
+  }
+
+  .receipt-meta-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+  }
+
+  .receipt-items-table {
+    margin: 8px 0;
+  }
+
+  .receipt-items-header {
+    display: flex;
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  .receipt-item-row {
+    margin-bottom: 6px;
+  }
+
+  .item-main-line {
+    display: flex;
+    font-weight: 600;
+  }
+
+  .col-qty {
+    width: 32px;
+    flex-shrink: 0;
+  }
+
+  .col-item {
+    flex: 1;
+  }
+
+  .col-price {
+    width: 60px;
+    text-align: right;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  .item-addon-line {
+    font-size: 9.5px;
+    color: #444444;
+    padding-left: 32px;
+  }
+
+  .receipt-totals {
+    font-size: 11px;
+    margin: 8px 0;
+  }
+
+  .receipt-total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+  }
+
+  .receipt-grand-total {
+    font-size: 13px;
+    font-weight: 900;
+    padding-top: 4px;
+  }
+
+  .receipt-footer {
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .barcode-box {
+    margin-bottom: 8px;
+  }
+
+  .simulated-barcode {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .barcode-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .receipt-thankyou {
+    font-size: 9px;
+    color: #444444;
+    line-height: 1.4;
+  }
+}
+
+
