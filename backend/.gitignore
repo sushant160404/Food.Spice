@@ -34,7 +34,6 @@ coverage/
 # Database
 *.db
 *.sqlite
-data/
 uploads/
 
 # Cache
